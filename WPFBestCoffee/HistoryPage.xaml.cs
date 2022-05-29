@@ -17,23 +17,23 @@ using WPFBestCoffee.Model;
 namespace WPFBestCoffee
 {
     /// <summary>
-    /// Логика взаимодействия для RecipesPage.xaml
+    /// Логика взаимодействия для HistoryPage.xaml
     /// </summary>
-    public partial class RecipesPage : Page
+    public partial class HistoryPage : Page
     {
-        public RecipesPage()
+        public HistoryPage()
         {
             InitializeComponent();
             var currentRecipes = MyBestCoffeeEntities.GetContext().Coffee.ToList();
             LViewRecipes.ItemsSource = currentRecipes;
         }
+        private void BtnRecipes_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new RecipesPage());
+        }
         private void BtnFavorite_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new FavoritePage());
-        }
-        private void BtnHistory_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new HistoryPage());
         }
 
         private void LViewRecipes_SelectionChanged(object sender, SelectionChangedEventArgs e)
