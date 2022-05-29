@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32505.173
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "BestCoffee\Core.csproj", "{BD09F75E-FD43-472A-A903-A4A2A412A4B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFBestCoffee", "WPFBestCoffee\WPFBestCoffee.csproj", "{67DEE031-735E-489F-966D-006BB2DC2BB9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD09F75E-FD43-472A-A903-A4A2A412A4B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD09F75E-FD43-472A-A903-A4A2A412A4B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD09F75E-FD43-472A-A903-A4A2A412A4B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD09F75E-FD43-472A-A903-A4A2A412A4B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67DEE031-735E-489F-966D-006BB2DC2BB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67DEE031-735E-489F-966D-006BB2DC2BB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67DEE031-735E-489F-966D-006BB2DC2BB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67DEE031-735E-489F-966D-006BB2DC2BB9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A72C46CC-4778-469A-8127-3556693690DA}
+	EndGlobalSection
+EndGlobal
