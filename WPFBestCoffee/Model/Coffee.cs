@@ -21,6 +21,7 @@ namespace WPFBestCoffee.Model
         public Nullable<int> Id_Instruction { get; set; }
         public Nullable<int> Id_Complexity { get; set; }
         public string img { get; set; }
+        public Nullable<bool> favorite { get; set; }
     
         public virtual Class Class { get; set; }
         public virtual Complexity Complexity { get; set; }

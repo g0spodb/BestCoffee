@@ -42,14 +42,22 @@
                              Background="#412814"
                              FontSize="14"/>
         </StackPanel>
-        <TextBox x:Name="TBoxSearch"
+        <TextBox x:Name="tb_search"
                 Width="250"
                  Height="40"
                  VerticalContentAlignment="Center" 
                  HorizontalAlignment="Left"
                  Margin="5"
-                 Grid.Column="1"/>
-        <ListView  Grid.Row="1" Grid.Column="1" Name="LViewRecipes" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" Background="{x:Null}" SelectionChanged="LViewRecipes_SelectionChanged">
+                 Grid.Column="1"
+                 TextChanged="tb_search_TextChanged"/>
+        <TextBlock Text="Выберите напиток для просмотра его истории"
+                   Foreground="White"
+                   FontSize="28"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="top"
+                   Height="35"
+                   Grid.Row="1" Grid.Column="1"/>
+        <ListView  Grid.Row="1" Grid.Column="1" Name="LViewRecipes" Margin=" 0 35 0 0 " ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" Background="{x:Null}" SelectionChanged="LViewRecipes_SelectionChanged">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left"></WrapPanel>

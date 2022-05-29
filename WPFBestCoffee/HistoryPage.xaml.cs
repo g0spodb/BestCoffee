@@ -21,6 +21,7 @@ namespace WPFBestCoffee
     /// </summary>
     public partial class HistoryPage : Page
     {
+        public static int actualPage;
         public HistoryPage()
         {
             InitializeComponent();
@@ -40,5 +41,21 @@ namespace WPFBestCoffee
         {
 
         }
+        private void tb_search_TextChanged(object sender, RoutedEventArgs e)
+        {
+
+            actualPage = 0;
+            Filter();
+        }
+        public void Filter()
+        {
+            var filterProd = MyBestCoffeeEntities.GetContext().Coffee.ToList();
+            if (tb_search.Text != "")
+            {
+                filterProd = filterProd.Where(z => (z.Name.StartsWith(tb_search.Text)));
+            }
+            LViewRecipes.ItemsSource = filterProd;
+        }
     }
+    
 }

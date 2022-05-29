@@ -24,7 +24,7 @@ namespace WPFBestCoffee
         public FavoritePage()
         {
             InitializeComponent();
-            var currentRecipes = MyBestCoffeeEntities.GetContext().Coffee.ToList();
+            var currentRecipes = MyBestCoffeeEntities.GetContext().Coffee.Where(a =>a.favorite == true).ToList();
             LViewRecipes.ItemsSource = currentRecipes;
         }
         private void BtnRecipes_Click(object sender, RoutedEventArgs e)
@@ -33,7 +33,7 @@ namespace WPFBestCoffee
         }
         private void BtnHistory_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new HistoryPage());
+            NavigationService.Navigate(new HistoryPage());  
         }
 
         private void LViewRecipes_SelectionChanged(object sender, SelectionChangedEventArgs e)

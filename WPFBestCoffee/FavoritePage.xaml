@@ -48,7 +48,14 @@
                  HorizontalAlignment="Left"
                  Margin="5"
                  Grid.Column="1"/>
-        <ListView  Grid.Row="1" Grid.Column="1" Name="LViewRecipes" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" Background="{x:Null}" SelectionChanged="LViewRecipes_SelectionChanged">
+        <TextBlock Text="Ваши любимые кофе"
+                   Foreground="White"
+                   FontSize="28"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="top"
+                   Height="35"
+                   Grid.Row="1" Grid.Column="1"/>
+        <ListView  Grid.Row="1" Grid.Column="1" Name="LViewRecipes" Margin=" 0 35 0 0 " ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" Background="{x:Null}" SelectionChanged="LViewRecipes_SelectionChanged">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left"></WrapPanel>
