@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "BestCoffee\Core.csproj", "{BD09F75E-FD43-472A-A903-A4A2A412A4B6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFBestCoffee", "WPFBestCoffee\WPFBestCoffee.csproj", "{67DEE031-735E-489F-966D-006BB2DC2BB9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BD09F75E-FD43-472A-A903-A4A2A412A4B6} = {BD09F75E-FD43-472A-A903-A4A2A412A4B6}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

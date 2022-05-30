@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище MyBestCoffeeModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Class">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Class" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="Coffee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="25" />
+          <Property Name="Id_Class" Type="int" />
+          <Property Name="Id_Recipe" Type="int" />
+          <Property Name="Id_Instruction" Type="int" />
+          <Property Name="Id_Complexity" Type="int" />
+          <Property Name="img" Type="varchar" MaxLength="50" />
+          <Property Name="favorite" Type="bit" />
+        </EntityType>
+        <EntityType Name="Complexity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Favorite">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id_User" Type="int" Nullable="false" />
+          <Property Name="Id_Coffee" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ingredient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Recipe">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Recipe" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="25" />
+          <Property Name="Login" Type="varchar" MaxLength="25" />
+          <Property Name="Password" Type="varchar" MaxLength="25" />
+          <Property Name="Favorite" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK_Coffee_Class">
+          <End Role="Class" Type="Self.Class" Multiplicity="0..1" />
+          <End Role="Coffee" Type="Self.Coffee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Coffee">
+              <PropertyRef Name="Id_Class" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coffee_Complexity">
+          <End Role="Complexity" Type="Self.Complexity" Multiplicity="0..1" />
+          <End Role="Coffee" Type="Self.Coffee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Complexity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Coffee">
+              <PropertyRef Name="Id_Complexity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coffee_Instruction">
+          <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="0..1" />
+          <End Role="Coffee" Type="Self.Coffee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Coffee">
+              <PropertyRef Name="Id_Instruction" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coffee_Recipe">
+          <End Role="Recipe" Type="Self.Recipe" Multiplicity="0..1" />
+          <End Role="Coffee" Type="Self.Coffee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Coffee">
+              <PropertyRef Name="Id_Recipe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище MyBestCoffeeModelContainer">
+          <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Coffee" EntityType="Self.Coffee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Complexity" EntityType="Self.Complexity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Favorite" EntityType="Self.Favorite" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ingredient" EntityType="Self.Ingredient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recipe" EntityType="Self.Recipe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Coffee_Class" Association="Self.FK_Coffee_Class">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="Coffee" EntitySet="Coffee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coffee_Complexity" Association="Self.FK_Coffee_Complexity">
+            <End Role="Complexity" EntitySet="Complexity" />
+            <End Role="Coffee" EntitySet="Coffee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coffee_Instruction" Association="Self.FK_Coffee_Instruction">
+            <End Role="Ingredient" EntitySet="Ingredient" />
+            <End Role="Coffee" EntitySet="Coffee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coffee_Recipe" Association="Self.FK_Coffee_Recipe">
+            <End Role="Recipe" EntitySet="Recipe" />
+            <End Role="Coffee" EntitySet="Coffee" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MyBestCoffeeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Class">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Class1" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Coffee" Relationship="Self.FK_Coffee_Class" FromRole="Class" ToRole="Coffee" />
+        </EntityType>
+        <EntityType Name="Coffee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Class" Type="Int32" />
+          <Property Name="Id_Recipe" Type="Int32" />
+          <Property Name="Id_Instruction" Type="Int32" />
+          <Property Name="Id_Complexity" Type="Int32" />
+          <Property Name="img" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Class" Relationship="Self.FK_Coffee_Class" FromRole="Coffee" ToRole="Class" />
+          <NavigationProperty Name="Complexity" Relationship="Self.FK_Coffee_Complexity" FromRole="Coffee" ToRole="Complexity" />
+          <NavigationProperty Name="Ingredient" Relationship="Self.FK_Coffee_Instruction" FromRole="Coffee" ToRole="Ingredient" />
+          <NavigationProperty Name="Recipe" Relationship="Self.FK_Coffee_Recipe" FromRole="Coffee" ToRole="Recipe" />
+          <Property Name="favorite" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Complexity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Coffee" Relationship="Self.FK_Coffee_Complexity" FromRole="Complexity" ToRole="Coffee" />
+        </EntityType>
+        <EntityType Name="Favorite">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id_User" Type="Int32" Nullable="false" />
+          <Property Name="Id_Coffee" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ingredient">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Coffee" Relationship="Self.FK_Coffee_Instruction" FromRole="Ingredient" ToRole="Coffee" />
+        </EntityType>
+        <EntityType Name="Recipe">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Recipe1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Coffee" Relationship="Self.FK_Coffee_Recipe" FromRole="Recipe" ToRole="Coffee" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Login" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Favorite" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Coffee_Class">
+          <End Role="Class" Type="Self.Class" Multiplicity="0..1" />
+          <End Role="Coffee" Type="Self.Coffee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Coffee">
+              <PropertyRef Name="Id_Class" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coffee_Complexity">
+          <End Role="Complexity" Type="Self.Complexity" Multiplicity="0..1" />
+          <End Role="Coffee" Type="Self.Coffee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Complexity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Coffee">
+              <PropertyRef Name="Id_Complexity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coffee_Instruction">
+          <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="0..1" />
+          <End Role="Coffee" Type="Self.Coffee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingredient">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Coffee">
+              <PropertyRef Name="Id_Instruction" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Coffee_Recipe">
+          <End Role="Recipe" Type="Self.Recipe" Multiplicity="0..1" />
+          <End Role="Coffee" Type="Self.Coffee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recipe">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Coffee">
+              <PropertyRef Name="Id_Recipe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MyBestCoffeeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Class" EntityType="Self.Class" />
+          <EntitySet Name="Coffee" EntityType="Self.Coffee" />
+          <EntitySet Name="Complexity" EntityType="Self.Complexity" />
+          <EntitySet Name="Favorite" EntityType="Self.Favorite" />
+          <EntitySet Name="Ingredient" EntityType="Self.Ingredient" />
+          <EntitySet Name="Recipe" EntityType="Self.Recipe" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="FK_Coffee_Class" Association="Self.FK_Coffee_Class">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="Coffee" EntitySet="Coffee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coffee_Complexity" Association="Self.FK_Coffee_Complexity">
+            <End Role="Complexity" EntitySet="Complexity" />
+            <End Role="Coffee" EntitySet="Coffee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coffee_Instruction" Association="Self.FK_Coffee_Instruction">
+            <End Role="Ingredient" EntitySet="Ingredient" />
+            <End Role="Coffee" EntitySet="Coffee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Coffee_Recipe" Association="Self.FK_Coffee_Recipe">
+            <End Role="Recipe" EntitySet="Recipe" />
+            <End Role="Coffee" EntitySet="Coffee" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище MyBestCoffeeModelContainer" CdmEntityContainer="MyBestCoffeeEntities">
+          <EntitySetMapping Name="Class">
+            <EntityTypeMapping TypeName="MyBestCoffeeModel.Class">
+              <MappingFragment StoreEntitySet="Class">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Class1" ColumnName="Class" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Coffee">
+            <EntityTypeMapping TypeName="MyBestCoffeeModel.Coffee">
+              <MappingFragment StoreEntitySet="Coffee">
+                <ScalarProperty Name="favorite" ColumnName="favorite" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id_Class" ColumnName="Id_Class" />
+                <ScalarProperty Name="Id_Recipe" ColumnName="Id_Recipe" />
+                <ScalarProperty Name="Id_Instruction" ColumnName="Id_Instruction" />
+                <ScalarProperty Name="Id_Complexity" ColumnName="Id_Complexity" />
+                <ScalarProperty Name="img" ColumnName="img" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Complexity">
+            <EntityTypeMapping TypeName="MyBestCoffeeModel.Complexity">
+              <MappingFragment StoreEntitySet="Complexity">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Favorite">
+            <EntityTypeMapping TypeName="MyBestCoffeeModel.Favorite">
+              <MappingFragment StoreEntitySet="Favorite">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+                <ScalarProperty Name="Id_Coffee" ColumnName="Id_Coffee" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ingredient">
+            <EntityTypeMapping TypeName="MyBestCoffeeModel.Ingredient">
+              <MappingFragment StoreEntitySet="Ingredient">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recipe">
+            <EntityTypeMapping TypeName="MyBestCoffeeModel.Recipe">
+              <MappingFragment StoreEntitySet="Recipe">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Recipe1" ColumnName="Recipe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="MyBestCoffeeModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="MyBestCoffeeModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Favorite" ColumnName="Favorite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

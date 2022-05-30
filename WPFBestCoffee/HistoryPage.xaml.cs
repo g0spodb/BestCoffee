@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPFBestCoffee.Model;
+using Core;
 
 namespace WPFBestCoffee
 {
@@ -21,6 +23,7 @@ namespace WPFBestCoffee
     /// </summary>
     public partial class HistoryPage : Page
     {
+        public static ObservableCollection<Model.Coffee> coffee { get; set; }
         public static int actualPage;
         public HistoryPage()
         {
@@ -45,17 +48,18 @@ namespace WPFBestCoffee
         {
 
             actualPage = 0;
-            Filter();
+            Filter.Filter1();
         }
-        public void Filter()
-        {
-            var filterProd = MyBestCoffeeEntities.GetContext().Coffee.ToList();
-            if (tb_search.Text != "")
-            {
-                filterProd = filterProd.Where(z => (z.Name.StartsWith(tb_search.Text)));
-            }
-            LViewRecipes.ItemsSource = filterProd;
-        }
+        //public void Filter()
+        //{
+        //    //var filterProd = (IEnumerable<Model.Coffee>)bd_connection.connection.Coffee.ToList();
+        //    //if (tb_search.Text != "")
+        //    //{
+        //    //    filterProd = filterProd.Where(z => (z.Name.StartsWith(tb_search.Text)));
+        //    //}
+        //    //LViewRecipes.ItemsSource = filterProd;
+        //    Filter.Filter1();
+        //}
     }
     
 }

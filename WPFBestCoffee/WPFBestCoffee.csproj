@@ -70,6 +70,7 @@
     <Compile Include="HistoryPage.xaml.cs">
       <DependentUpon>HistoryPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\bd_connection.cs" />
     <Compile Include="Model\Class.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
