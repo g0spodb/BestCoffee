@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище MyBestCoffeeModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище MyBestCoffeeModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Class">
           <Key>
             <PropertyRef Name="Id" />
@@ -148,7 +148,8 @@
             <End Role="Coffee" EntitySet="Coffee" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MyBestCoffeeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -171,11 +172,11 @@
           <Property Name="Id_Instruction" Type="Int32" />
           <Property Name="Id_Complexity" Type="Int32" />
           <Property Name="img" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="favorite" Type="Boolean" />
           <NavigationProperty Name="Class" Relationship="Self.FK_Coffee_Class" FromRole="Coffee" ToRole="Class" />
           <NavigationProperty Name="Complexity" Relationship="Self.FK_Coffee_Complexity" FromRole="Coffee" ToRole="Complexity" />
           <NavigationProperty Name="Ingredient" Relationship="Self.FK_Coffee_Instruction" FromRole="Coffee" ToRole="Ingredient" />
           <NavigationProperty Name="Recipe" Relationship="Self.FK_Coffee_Recipe" FromRole="Coffee" ToRole="Recipe" />
-          <Property Name="favorite" Type="Boolean" />
         </EntityType>
         <EntityType Name="Complexity">
           <Key>
@@ -320,7 +321,6 @@
           <EntitySetMapping Name="Coffee">
             <EntityTypeMapping TypeName="MyBestCoffeeModel.Coffee">
               <MappingFragment StoreEntitySet="Coffee">
-                <ScalarProperty Name="favorite" ColumnName="favorite" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id_Class" ColumnName="Id_Class" />
@@ -328,6 +328,7 @@
                 <ScalarProperty Name="Id_Instruction" ColumnName="Id_Instruction" />
                 <ScalarProperty Name="Id_Complexity" ColumnName="Id_Complexity" />
                 <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="favorite" ColumnName="favorite" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

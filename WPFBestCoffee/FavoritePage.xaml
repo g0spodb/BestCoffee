@@ -26,28 +26,29 @@
                        FontSize="22"
                        Margin="20,0,0,0"/>
         <StackPanel Grid.Row="1">
-            <Button Content="Recipes"
+            <Button Content="Рецепты"
                              Height="50"
                              Foreground="#e4bcbc"
                              Background="#51382a"
                              FontSize="14" Click="BtnRecipes_Click"/>
-            <Button Content="Favorite"
+            <Button Content="Любимые"
                              Height="50"
                              Foreground="#e4bcbc"
                              Background="#412814"/>
-            <Button Content="History"
+            <Button Content="История кофе"
                              Height="50"
                              Foreground="#e4bcbc"
                              Background="#51382a"
                              FontSize="14" Click="BtnHistory_Click"/>
         </StackPanel>
-        <TextBox x:Name="TBoxSearch"
+        <TextBox x:Name="tb_search"
                 Width="250"
                  Height="40"
                  VerticalContentAlignment="Center" 
                  HorizontalAlignment="Left"
                  Margin="5"
-                 Grid.Column="1"/>
+                 Grid.Column="1"
+                 TextChanged="tb_search_TextChanged"/>
         <TextBlock Text="Ваши любимые кофе"
                    Foreground="White"
                    FontSize="28"

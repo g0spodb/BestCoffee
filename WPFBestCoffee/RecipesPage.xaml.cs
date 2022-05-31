@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,9 +22,11 @@ namespace WPFBestCoffee
     /// </summary>
     public partial class RecipesPage : Page
     {
+        public static ObservableCollection<Model.Coffee> coffee { get; set; }
+        public static int actualPage;
         public RecipesPage()
         {
-            InitializeComponent();
+        InitializeComponent();
             var currentRecipes = MyBestCoffeeEntities.GetContext().Coffee.ToList();
             LViewRecipes.ItemsSource = currentRecipes;
         }
@@ -38,7 +41,23 @@ namespace WPFBestCoffee
 
         private void LViewRecipes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            var n = (sender as ListView).SelectedItem as Model.Coffee;
+            NavigationService.Navigate(new CoffeePage(n));
+        }
+        private void tb_search_TextChanged(object sender, RoutedEventArgs e)
+        {
 
+            actualPage = 0;
+            Filter();
+        }
+        public void Filter()
+        {
+            var filterProd = (IEnumerable<Model.Coffee>)bd_connection.connection.Coffee.ToList();
+            if (tb_search.Text != "")
+            {
+                filterProd = filterProd.Where(z => (z.Name.StartsWith(tb_search.Text)));
+            }
+            LViewRecipes.ItemsSource = filterProd;
         }
     }
 }

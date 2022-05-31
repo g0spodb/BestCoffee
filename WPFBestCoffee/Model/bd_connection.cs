@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WPFBestCoffee.Model
 {
-    class bd_connection
+    public class bd_connection
     {
         public static Model.MyBestCoffeeEntities connection = new Model.MyBestCoffeeEntities();
     }

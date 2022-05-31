@@ -6,47 +6,48 @@
       xmlns:local="clr-namespace:WPFBestCoffee"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="CoffeePage">   
+      Title="CoffeePage">
     <Grid>
         <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="200"/>
-        <ColumnDefinition/>
-        <ColumnDefinition/>
-        <ColumnDefinition/>
-    </Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
-    <Grid.RowDefinitions>
-        <RowDefinition Height="75"/>
-        <RowDefinition/>
-        <RowDefinition/>
-        <RowDefinition/>
-        <RowDefinition/>
-        <RowDefinition/>
-        <RowDefinition/>
-    </Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
-    <TextBlock Text="GreatCoffee"
+        <TextBlock Text="GreatCoffee"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                        Foreground="#e4bcbc"
                        FontSize="22"
                        Margin="20,0,0,0"/>
-    <StackPanel Grid.Row="1" Grid.RowSpan="3">
-        <Button Content="Рецепты"
+        <StackPanel Grid.Row="1" Grid.RowSpan="3">
+            <Button Content="Рецепты"
                              Height="50"
                              Foreground="#e4bcbc"
                              Background="#51382a"
                              FontSize="14" Click="BtnRecipes_Click"/>
-        <Button Content="Любимые"
+            <Button Content="Любимые"
                              Height="50"
                              Foreground="#e4bcbc"
-                             Background="#412814"/>
-        <Button Content="История"
+                             Background="#412814"
+                             FontSize="14" Click="BtnFavorite_Click"/>
+            <Button Content="История кофе"
                              Height="50"
                              Foreground="#e4bcbc"
                              Background="#51382a"
                              FontSize="14" Click="BtnHistory_Click"/>
-    </StackPanel>
+        </StackPanel>
         <TextBox x:Name="TBoxSearch"
                 Width="250"
                  Height="40"
@@ -55,9 +56,24 @@
                  Margin="5"
                  Grid.Column="1"
                  Grid.ColumnSpan="2"/>
-        <TextBlock x:Name="tb_name" Grid.Column="1" Grid.Row="1" PreviewTextInput="tb_name_PreviewTextInput"/>
-        <TextBox x:Name="tb_ingredients" Grid.Column="1" Grid.Row="3" PreviewTextInput="tb_name_PreviewTextInput" Margin="5" Grid.RowSpan="3"/>
-        <TextBox x:Name="tb_instructions" Grid.Column="2" Grid.Row="3" PreviewTextInput="tb_name_PreviewTextInput" Margin="5" Grid.RowSpan="3"/>
-        <Image Source="/image/like.png" Grid.Column="3" Grid.Row="6" HorizontalAlignment="Left" Width="30" Height="30" MouseLeftButtonDown="Image_MouseLeftButtonDown" />
+        <ListView  Grid.Row="1" Grid.Column="1" Name="LViewRecipes" Background="{x:Null}" Grid.RowSpan="3" Grid.ColumnSpan="1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                <Grid Margin="10" Width="200" Height="250">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="200"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Image Source="{Binding img}" Width="200" Height="200" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="UniformToFill"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <!--<Image x:Name="imgg" Source="{Binding img}" Width="200" Height="92" VerticalAlignment="Center" Stretch="UniformToFill"/>-->
+        <TextBlock x:Name="tb_name" Grid.Column="1" Grid.Row="2" />
+        <TextBlock x:Name="tb_ingredients" Grid.Column="1" Grid.Row="3" Margin="5" Grid.RowSpan="3" />
+        <TextBlock x:Name="tb_instructions" Grid.Column="2" Grid.Row="3" Margin="5" Grid.RowSpan="3"/>
+        <Image Source="/image/like.png" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" Width="30" Height="30" VerticalAlignment="Bottom"/>
     </Grid>
 </Page>

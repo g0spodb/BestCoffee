@@ -26,17 +26,17 @@
                        FontSize="22"
                        Margin="20,0,0,0"/>
         <StackPanel Grid.Row="1">
-            <Button Content="Recipes"
+            <Button Content="Рецепты"
                              Height="50"
                              Foreground="#e4bcbc"
                              Background="#51382a"
                              FontSize="14" Click="BtnRecipes_Click"/>
-            <Button Content="Favorite"
+            <Button Content="Любимые"
                              Height="50"
                              Foreground="#e4bcbc"
                              Background="#51382a"
                              FontSize="14" Click="BtnFavorite_Click"/>
-            <Button Content="History"
+            <Button Content="История напитков"
                              Height="50"
                              Foreground="#e4bcbc"
                              Background="#412814"

@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using WPFBestCoffee.Model;
 
 namespace WPFBestCoffee
 {
@@ -26,39 +27,25 @@ namespace WPFBestCoffee
         public CoffeePage(Model.Coffee n)
         {
             InitializeComponent();
+            var currentRecipes = MyBestCoffeeEntities.GetContext().Coffee.ToList();
             constProd = n;
             this.DataContext = constProd;
             tb_name.Text = n.Name;
-            tb_instructions.Text = n.Name;
+            tb_instructions.Text = n.Complexity.Title;
+            //imgg = n.img;
 
         }
-        void OvalForm(Button btn)
+        private void BtnRecipes_Click(object sender, RoutedEventArgs e)
         {
-            GraphicsPath gp = new GraphicsPath();
-            Graphics g = CreateGraphics();
-
-            //Создаем новый прямоуголник с размерами кнопки
-            System.Drawing.Rectangle rect = btn.ClientRectangle;
-
-            //уменьшаем размеры прямоуголника
-            rect.Inflate(-3, -3);
-
-            //создаем эллипс
-            gp.AddEllipse(rect);
-            btn.Region = new Region(gp);
-
-            //рисуем рамку для овальной кнопки
-            g.DrawEllipse(new System.Drawing.Pen(System.Drawing.Color.Black, 2),
-            btn.Left + 1, btn.Top + 1,
-            btn.Width - 3, btn.Height - 3);
-
-            //высвобождаем память
-            g.Dispose();
+            NavigationService.Navigate(new RecipesPage());
         }
-        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void BtnFavorite_Click(object sender, RoutedEventArgs e)
         {
-            n.favorite == true;
+            NavigationService.Navigate(new FavoritePage());
         }
-
+        private void BtnHistory_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new HistoryPage());
+        }
     }
 }
