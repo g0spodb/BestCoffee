@@ -3,20 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Model;
+using BestCoffee.Model;
+using WPFBestCoffee.Model;
 
 namespace Core
 {
     public class DataAccess
     {
-        public static List<coffee> GetCoffees()
+        public static List<Coffee> GetCoffees()
         {
-            List<coffee> coffees = new List<coffee>(bdconnection.connection.patient);
+            List<Coffee> coffees = new List<Coffee>(bd_connection.connection.Coffee);
+            //List<Coffee> coffeess1 = new List<Coffee>();
+            return coffees;
         }
-        public static coffee GetCoffee(int id_pat)
+        public static Coffee GetCoffee(int Id_coffee)
         {
-            List<coffee> coffees = GetCoffees();
-            var cof = coffees.Where(p => p.id_pat == id_pat).FirstOrDefault();
+            List<Coffee> coffees = GetCoffees();
+            var cof = coffees.Where(p => p.Id == Id_coffee).FirstOrDefault();
             return cof;
         }
     }
