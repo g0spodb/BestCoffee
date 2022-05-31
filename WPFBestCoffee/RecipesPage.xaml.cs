@@ -59,5 +59,10 @@ namespace WPFBestCoffee
             }
             LViewRecipes.ItemsSource = filterProd;
         }
+
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddRecipePage());
+        }
     }
 }

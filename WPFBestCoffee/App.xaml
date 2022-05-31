@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:WPFBestCoffee"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="CustomFont">
+            <Setter Property="TextElement.FontFamily" Value="/Fonts/#Parsons"></Setter>
+        </Style>
     </Application.Resources>
 </Application>

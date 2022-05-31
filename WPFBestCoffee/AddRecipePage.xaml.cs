@@ -12,31 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using WPFBestCoffee.Model;
 
 namespace WPFBestCoffee
 {
     /// <summary>
-    /// Логика взаимодействия для CoffeePage.xaml
+    /// Логика взаимодействия для AddRecipePage.xaml
     /// </summary>
-    public partial class CoffeePage : Page
+    public partial class AddRecipePage : Page
     {
-        public static Model.Coffee constProd;
-        public CoffeePage(Model.Coffee n)
+        public AddRecipePage()
         {
             InitializeComponent();
-            var currentRecipes = MyBestCoffeeEntities.GetContext().Coffee.ToList();
-            constProd = n;
-            this.DataContext = constProd;
-            tb_name.Text = n.Name;
-            tb_recipe.Text = n.Recipe.Title;
-            if(n.favorite != true)
-            {
-                    like.Visibility = Visibility.Hidden;
-            }
-
         }
         private void BtnRecipes_Click(object sender, RoutedEventArgs e)
         {
@@ -49,11 +35,6 @@ namespace WPFBestCoffee
         private void BtnHistory_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new HistoryPage());
-        }
-
-        private void btn_back_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.GoBack();
         }
     }
 }

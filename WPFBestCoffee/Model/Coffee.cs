@@ -18,7 +18,7 @@ namespace WPFBestCoffee.Model
         public string Name { get; set; }
         public Nullable<int> Id_Class { get; set; }
         public Nullable<int> Id_Recipe { get; set; }
-        public Nullable<int> Id_Instruction { get; set; }
+        public Nullable<int> Id_Ingredient { get; set; }
         public Nullable<int> Id_Complexity { get; set; }
         public string img { get; set; }
         public Nullable<bool> favorite { get; set; }

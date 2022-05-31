@@ -40,7 +40,14 @@
                              Foreground="#e4bcbc"
                              Background="#51382a"
                              FontSize="14" Click="BtnHistory_Click"/>
+            
         </StackPanel>
+        <Button Content="Добавить рецепт"
+                             Height="50"
+                             Foreground="#e4bcbc"
+                             Background="#51382a"
+                             FontSize="14" Click="BtnAdd_Click"
+                             Grid.Column="1" HorizontalAlignment="Center" />
         <TextBox x:Name="tb_search"
                 Width="250"
                  Height="40"
@@ -71,6 +78,7 @@
                             <RowDefinition Height="auto"/>
                         </Grid.RowDefinitions>
                         <Image Source="{Binding img}" Width="200" Height="200" VerticalAlignment="Center" Stretch="UniformToFill"/>
+                        <TextBlock Text="{Binding Name}" Margin="0 15 0 0" VerticalAlignment="Top" TextAlignment="Center" Width="200" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="18" Grid.Row="1"></TextBlock>
                         <TextBlock Text="{Binding Name}" Margin="0 15 0 0" VerticalAlignment="Top" TextAlignment="Center" Width="200" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="18" Grid.Row="1"></TextBlock>
                     </Grid>
                 </DataTemplate>
