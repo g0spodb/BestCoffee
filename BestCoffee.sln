@@ -12,7 +12,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFBestCoffee", "WPFBestCof
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleBestCoffee", "ConsoleBestCoffee\ConsoleBestCoffee.csproj", "{81678334-A952-4CE8-97B0-EB8A0C037CEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APITheBestCoffee", "APITheBestCoffee\APITheBestCoffee.csproj", "{D34FAD04-A4AE-46E5-84D0-6AB0E0B969CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APITheBestCoffee", "APITheBestCoffee\APITheBestCoffee.csproj", "{D34FAD04-A4AE-46E5-84D0-6AB0E0B969CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestBestCoffee", "TestBestCoffee\TestBestCoffee.csproj", "{0910D447-F767-4012-AE2E-93729C958E33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +38,10 @@ Global
 		{D34FAD04-A4AE-46E5-84D0-6AB0E0B969CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D34FAD04-A4AE-46E5-84D0-6AB0E0B969CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D34FAD04-A4AE-46E5-84D0-6AB0E0B969CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0910D447-F767-4012-AE2E-93729C958E33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0910D447-F767-4012-AE2E-93729C958E33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0910D447-F767-4012-AE2E-93729C958E33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0910D447-F767-4012-AE2E-93729C958E33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
