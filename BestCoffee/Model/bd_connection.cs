@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WPFBestCoffee.Model
+namespace BestCoffee.Model
 {
     public class bd_connection
     {

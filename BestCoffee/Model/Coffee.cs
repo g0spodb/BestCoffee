@@ -7,23 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WPFBestCoffee.Model
+namespace BestCoffee.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Class
+    public partial class Coffee
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Class()
-        {
-            this.Coffee = new HashSet<Coffee>();
-        }
-    
         public int Id { get; set; }
-        public string Title { get; set; }
+        public string Name { get; set; }
+        public Nullable<int> Id_Class { get; set; }
+        public string Recipe { get; set; }
+        public string Ingredient { get; set; }
+        public Nullable<int> Id_Complexity { get; set; }
+        public string img { get; set; }
+        public Nullable<bool> favorite { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Coffee> Coffee { get; set; }
+        public virtual Class Class { get; set; }
+        public virtual Complexity Complexity { get; set; }
     }
 }

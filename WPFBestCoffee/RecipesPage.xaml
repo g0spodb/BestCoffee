@@ -4,7 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WPFBestCoffee"
-      mc:Ignorable="d" Height="600" Width="920"
+      mc:Ignorable="d" 
+      Height="600" Width="920"
       Title="RecipesPage">
 
     <Grid>
@@ -43,7 +44,7 @@
             
         </StackPanel>
         <Button Content="Добавить рецепт"
-                             Height="50"
+                             Height="40"
                              Foreground="#e4bcbc"
                              Background="#51382a"
                              FontSize="14" Click="BtnAdd_Click"
@@ -78,8 +79,7 @@
                             <RowDefinition Height="auto"/>
                         </Grid.RowDefinitions>
                         <Image Source="{Binding img}" Width="200" Height="200" VerticalAlignment="Center" Stretch="UniformToFill"/>
-                        <TextBlock Text="{Binding Name}" Margin="0 15 0 0" VerticalAlignment="Top" TextAlignment="Center" Width="200" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="18" Grid.Row="1"></TextBlock>
-                        <TextBlock Text="{Binding Name}" Margin="0 15 0 0" VerticalAlignment="Top" TextAlignment="Center" Width="200" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="18" Grid.Row="1"></TextBlock>
+                        <TextBlock Text="{Binding Name}" Margin="0 15 0 0" VerticalAlignment="Top" TextAlignment="Center" Width="200" FontFamily="Constantia" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="18" Grid.Row="1"></TextBlock>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFBestCoffee"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="920" Background="#b4856e">
+        Title="MainWindow" Height="600" Width="920" Background="#b4856e"
+        WindowState="Maximized">
     <Grid>
         <Frame x:Name="frame_recipes" NavigationUIVisibility="Hidden"/>
     </Grid>

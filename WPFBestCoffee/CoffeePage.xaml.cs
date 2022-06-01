@@ -13,8 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using WPFBestCoffee.Model;
+using BestCoffee.Model;
 
 namespace WPFBestCoffee
 {
@@ -23,15 +22,17 @@ namespace WPFBestCoffee
     /// </summary>
     public partial class CoffeePage : Page
     {
-        public static Model.Coffee constProd;
-        public CoffeePage(Model.Coffee n)
+        public static BestCoffee.Model.Coffee constProd;
+        public CoffeePage(BestCoffee.Model.Coffee n)
         {
             InitializeComponent();
             var currentRecipes = MyBestCoffeeEntities.GetContext().Coffee.ToList();
             constProd = n;
             this.DataContext = constProd;
             tb_name.Text = n.Name;
-            tb_recipe.Text = n.Recipe.Title;
+            tb_recipe.Text = n.Recipe;
+            tb_ingredient.Text = n.Ingredient;
+            tb_complexity.Text = n.Complexity.Title;
             if(n.favorite != true)
             {
                     like.Visibility = Visibility.Hidden;

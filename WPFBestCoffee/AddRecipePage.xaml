@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WPFBestCoffee"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      Height="600" Width="920"
       Title="AddRecipePage">
 
     <Grid>
@@ -49,12 +49,25 @@
                              Background="#51382a"
                              FontSize="14" Click="BtnHistory_Click"/>
         </StackPanel>
-        <TextBox x:Name="tb_name" Grid.Row="1" Grid.Column="1" Margin="10" ></TextBox>
-        <TextBox x:Name="tb_class" Grid.Row="2" Grid.Column="1" Margin="10"></TextBox>
-        <TextBox x:Name="tb_recipe" Grid.Row="3" Grid.Column="1" Margin="10"></TextBox>
-        <TextBox x:Name="tb_ingredient" Grid.Row="4" Grid.Column="1" Margin="10"></TextBox>
-        <TextBox x:Name="tb_complexity" Grid.Row="5" Grid.Column="1" Margin="10"></TextBox>
-        <TextBox x:Name="tb_img" Grid.Row="6" Grid.Column="1" Margin="10"></TextBox>
-        <TextBox x:Name="tb_favorite" Grid.Row="1" Grid.Column="4" Margin="10"></TextBox>
+        <TextBlock  Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" FontFamily="Constantia">Название:</TextBlock>
+        <TextBox x:Name="tb_name" Grid.Row="1" Grid.Column="1" Margin="20" ></TextBox>
+        
+        <TextBlock  Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" FontFamily="Constantia">Класс:</TextBlock>
+        <ComboBox Name="cb_class" Grid.Column="1" Grid.Row="2" Margin="20" HorizontalAlignment="Left" Width="200"/>
+
+        <TextBlock  Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" FontFamily="Constantia">Сложность:</TextBlock>
+        <ComboBox x:Name="cb_complexity" Grid.Row="3" Grid.Column="1" Margin="20" ></ComboBox>
+
+        <TextBlock  Grid.Column="1" Grid.Row="4" VerticalAlignment="Top" FontFamily="Constantia">Ссылка на фото:</TextBlock>
+        <TextBox x:Name="tb_img" Grid.Row="4" Grid.Column="1" Margin="20" ></TextBox>
+
+        <RadioButton x:Name="rb_favorite" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Любимый"/>
+
+        <TextBlock  Grid.Column="2" Grid.Row="1" VerticalAlignment="Top" FontFamily="Constantia" TextWrapping="Wrap" >Рецепт:</TextBlock>
+        <TextBox x:Name="tb_recipe" Grid.Row="1" Grid.Column="2" Margin="10 20 10 10" Grid.RowSpan="4" AcceptsReturn="True"></TextBox>
+        
+        <TextBlock  Grid.Column="3" Grid.Row="1" VerticalAlignment="Top" FontFamily="Constantia" >Ингредиенты:</TextBlock>
+        <TextBox x:Name="tb_ingredients" Grid.Row="1" Grid.Column="3" Margin="10 20 10 10" Grid.RowSpan="4" AcceptsReturn="True"></TextBox>
+        <Button Content="Сохранить" Height="40" Foreground="#e4bcbc" Background="#51382a" FontSize="14" Click="BtnSave_Click" Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" />
     </Grid>
 </Page>

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WPFBestCoffee.Model
+namespace BestCoffee.Model
 {
     using System;
     using System.Data.Entity;
@@ -33,13 +33,11 @@ namespace WPFBestCoffee.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Ingredient> Ingredient { get; set; }
         public virtual DbSet<Class> Class { get; set; }
         public virtual DbSet<Coffee> Coffee { get; set; }
         public virtual DbSet<Complexity> Complexity { get; set; }
-        public virtual DbSet<Favorite> Favorite { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Ingredient> Ingredient { get; set; }
         public virtual DbSet<Recipe> Recipe { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

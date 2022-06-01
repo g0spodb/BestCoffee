@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WPFBestCoffee"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      Height="600" Width="920"
       Title="HistoryPage">
 
     <Grid>
@@ -36,7 +36,7 @@
                              Foreground="#e4bcbc"
                              Background="#51382a"
                              FontSize="14" Click="BtnFavorite_Click"/>
-            <Button Content="История напитков"
+            <Button Content="История кофе"
                              Height="50"
                              Foreground="#e4bcbc"
                              Background="#412814"
@@ -72,7 +72,7 @@
                             <RowDefinition Height="auto"/>
                         </Grid.RowDefinitions>
                         <Image Source="{Binding img}" Width="200" Height="200" VerticalAlignment="Center" Stretch="UniformToFill"/>
-                        <TextBlock Text="{Binding Name}" Margin="0 15 0 0" VerticalAlignment="Top" TextAlignment="Center" Width="200" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="18" Grid.Row="1"></TextBlock>
+                        <TextBlock Text="{Binding Name}" Margin="0 15 0 0" VerticalAlignment="Top" TextAlignment="Center" Width="200" FontFamily="Constantia" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="18" Grid.Row="1"></TextBlock>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

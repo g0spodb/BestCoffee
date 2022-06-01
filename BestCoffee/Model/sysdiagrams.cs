@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WPFBestCoffee.Model
+namespace BestCoffee.Model
 {
     using System;
     using System.Collections.Generic;

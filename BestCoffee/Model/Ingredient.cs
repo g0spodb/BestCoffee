@@ -7,15 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WPFBestCoffee.Model
+namespace BestCoffee.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Favorite
+    public partial class Ingredient
     {
-        public int Id { get; set; }
-        public int Id_User { get; set; }
-        public int Id_Coffee { get; set; }
+        public string Id { get; set; }
+        public string Title { get; set; }
     }
 }

@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WPFBestCoffee.Model;
+using BestCoffee.Model;
 
 namespace WPFBestCoffee
 {
@@ -22,7 +22,7 @@ namespace WPFBestCoffee
     /// </summary>
     public partial class RecipesPage : Page
     {
-        public static ObservableCollection<Model.Coffee> coffee { get; set; }
+        public static ObservableCollection<BestCoffee.Model.Coffee> coffee { get; set; }
         public static int actualPage;
         public RecipesPage()
         {
@@ -41,7 +41,7 @@ namespace WPFBestCoffee
 
         private void LViewRecipes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var n = (sender as ListView).SelectedItem as Model.Coffee;
+            var n = (sender as ListView).SelectedItem as BestCoffee.Model.Coffee;
             NavigationService.Navigate(new CoffeePage(n));
         }
         private void tb_search_TextChanged(object sender, RoutedEventArgs e)
@@ -52,7 +52,7 @@ namespace WPFBestCoffee
         }
         public void Filter()
         {
-            var filterProd = (IEnumerable<Model.Coffee>)bd_connection.connection.Coffee.ToList();
+            var filterProd = (IEnumerable<BestCoffee.Model.Coffee>)bd_connection.connection.Coffee.ToList();
             if (tb_search.Text != "")
             {
                 filterProd = filterProd.Where(z => (z.Name.StartsWith(tb_search.Text)));
