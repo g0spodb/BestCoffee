@@ -14,12 +14,6 @@ namespace Core
         {
             return new ObservableCollection<Coffee>(bd_connection.connection.Coffee.ToList());
         }
-        //public static Coffee GetCoffee(int Id_coffee)
-        //{
-        //    List<Coffee> coffees = GetCoffees();
-        //    var cof = coffees.Where(p => p.Id == Id_coffee).FirstOrDefault();
-        //    return cof;
-        //}
         public static ObservableCollection<Coffee> GetCoffees()
         {
             var listCoffee = new ObservableCollection<Coffee>();
