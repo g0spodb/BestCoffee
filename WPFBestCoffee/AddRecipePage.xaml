@@ -5,19 +5,19 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WPFBestCoffee"
       mc:Ignorable="d" 
-      Height="600" Width="920"
+      Height="1080" Width="1920"
       Title="AddRecipePage">
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="400"/>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="75"/>
+            <RowDefinition Height="150"/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -30,24 +30,24 @@
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                        Foreground="#e4bcbc"
-                       FontSize="22"
+                       FontSize="50"
                        Margin="20,0,0,0"/>
         <StackPanel Grid.Row="1" Grid.RowSpan="3">
             <Button Content="Рецепты"
-                             Height="50"
+                             Height="100"
                              Foreground="#e4bcbc"
                              Background="#51382a"
-                             FontSize="14" Click="BtnRecipes_Click"/>
+                             FontSize="30" Click="BtnRecipes_Click"/>
             <Button Content="Любимые"
-                             Height="50"
+                             Height="100"
                              Foreground="#e4bcbc"
                              Background="#412814"
-                             FontSize="14" Click="BtnFavorite_Click"/>
+                             FontSize="30" Click="BtnFavorite_Click"/>
             <Button Content="История кофе"
-                             Height="50"
+                             Height="100"
                              Foreground="#e4bcbc"
                              Background="#51382a"
-                             FontSize="14" Click="BtnHistory_Click"/>
+                             FontSize="30" Click="BtnHistory_Click"/>
         </StackPanel>
         <TextBlock  Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" FontFamily="Constantia">Название:</TextBlock>
         <TextBox x:Name="tb_name" Grid.Row="1" Grid.Column="1" Margin="20" ></TextBox>

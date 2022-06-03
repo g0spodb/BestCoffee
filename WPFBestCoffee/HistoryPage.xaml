@@ -5,17 +5,17 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WPFBestCoffee"
       mc:Ignorable="d" 
-      Height="600" Width="920"
+      Height="1080" Width="1920"
       Title="HistoryPage">
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="400"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="75"/>
+            <RowDefinition Height="150"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
@@ -23,41 +23,42 @@
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                        Foreground="#e4bcbc"
-                       FontSize="22"
+                       FontSize="50"
                        Margin="20,0,0,0"/>
         <StackPanel Grid.Row="1">
             <Button Content="Рецепты"
-                             Height="50"
+                             Height="100"
                              Foreground="#e4bcbc"
                              Background="#51382a"
-                             FontSize="14" Click="BtnRecipes_Click"/>
+                             FontSize="30" Click="BtnRecipes_Click"/>
             <Button Content="Любимые"
-                             Height="50"
+                             Height="100"
                              Foreground="#e4bcbc"
                              Background="#51382a"
-                             FontSize="14" Click="BtnFavorite_Click"/>
+                             FontSize="30" Click="BtnFavorite_Click"/>
             <Button Content="История кофе"
-                             Height="50"
+                             Height="100"
                              Foreground="#e4bcbc"
                              Background="#412814"
-                             FontSize="14"/>
+                             FontSize="30"/>
         </StackPanel>
         <TextBox x:Name="tb_search"
-                Width="250"
-                 Height="40"
+                 Width="500"
+                 Height="80"
                  VerticalContentAlignment="Center" 
                  HorizontalAlignment="Left"
-                 Margin="5"
+                 Margin="50,25"
                  Grid.Column="1"
                  TextChanged="tb_search_TextChanged"/>
         <TextBlock Text="Выберите напиток для просмотра его истории"
                    Foreground="White"
-                   FontSize="28"
+                   Margin="50 5 0 0"
+                   FontSize="35"
                    HorizontalAlignment="Left"
                    VerticalAlignment="top"
-                   Height="35"
+                   Height="70"
                    Grid.Row="1" Grid.Column="1"/>
-        <ListView  Grid.Row="1" Grid.Column="1" Name="LViewRecipes" Margin=" 0 35 0 0 " ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" Background="{x:Null}" SelectionChanged="LViewRecipes_SelectionChanged">
+        <ListView  Grid.Row="1" Grid.Column="1" Name="LViewRecipes" Margin="50,70,10,0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" Background="{x:Null}" SelectionChanged="LViewRecipes_SelectionChanged">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" HorizontalAlignment="Left"></WrapPanel>
