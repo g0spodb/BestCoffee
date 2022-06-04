@@ -9,8 +9,7 @@ namespace TestBestCoffee
         [TestMethod]
         public void TestGettingCoffee()
         {
-           DataAccess.GetCoffees();
-
+           DataAccess.GetCoffee();
         }
     }
 }

@@ -37,6 +37,10 @@ namespace WPFBestCoffee
             {
                     like.Visibility = Visibility.Hidden;
             }
+            else
+            {
+                btn_like.Visibility = Visibility.Visible;
+            }
 
         }
         private void BtnRecipes_Click(object sender, RoutedEventArgs e)

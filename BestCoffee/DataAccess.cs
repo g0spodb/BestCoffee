@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +13,8 @@ namespace Core
 {
     public class DataAccess
     {
+        private static string connect = ConfigurationManager.ConnectionStrings["Model"].ConnectionString;
+        private static IDbConnection connection = new SqlConnection(connect);
         public static ObservableCollection<Coffee> GetCoffee()
         {
             return new ObservableCollection<Coffee>(bd_connection.connection.Coffee.ToList());
@@ -32,6 +37,10 @@ namespace Core
                 listCoffee.Add(gh);
             }
             return listCoffee;
+        }
+        public static ObservableCollection<Coffee> GetAllCoffee()
+        {
+            return connection.Query<Coffee>("select * from [dbo].[Coffee]").AsList();
         }
     }
 }
