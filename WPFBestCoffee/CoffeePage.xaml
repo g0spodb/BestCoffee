@@ -54,7 +54,7 @@
         <TextBlock x:Name="tb_ingredients" Grid.Column="1" Grid.Row="3" Margin="5" Grid.RowSpan="4" FontFamily="Constantia"/>
 
         <TextBlock x:Name="tb_name" Grid.Column="1" Grid.Row="3" Margin="0" TextAlignment="Center" FontSize="30" FontFamily="Constantia"/>
-        <Image x:Name="like" Source="/image/like.png" Grid.Column="1" Grid.Row="3" Margin="100,5,0,0" HorizontalAlignment="Left" Width="30" Height="30" VerticalAlignment="Top" />
+        <Image x:Name="like" Source="/image/like.png" Grid.Column="1" Grid.Row="3" Margin="100,5,0,0" HorizontalAlignment="Left" Width="30" Height="30" VerticalAlignment="Top" Visibility="Hidden"/>
 
         <TextBlock  Grid.Column="2" Grid.Row="1" Margin="5" VerticalAlignment="Bottom" FontFamily="Constantia" FontSize="20" TextWrapping="Wrap">Рецепт:</TextBlock>
         <TextBlock x:Name="tb_recipe" Grid.Column="2" Grid.Row="2" Margin="5" Grid.RowSpan="4" FontFamily="Constantia" FontSize="20" TextWrapping="Wrap"/>
@@ -65,6 +65,7 @@
         <TextBlock x:Name="tb_complexity"  Grid.Column="1" Margin="210 0 0,0" Grid.Row="3" VerticalAlignment="Center" FontFamily="Constantia" FontSize="20"/>
 
         <Button x:Name="btn_like" Content="В любимое" Grid.Column="1" Grid.Row="4" VerticalAlignment="Top" Foreground="#e4bcbc" Height="40" Background="#51382a" Width="150" HorizontalAlignment="Center" Visibility="Hidden"/>
+        <Button x:Name="btn_dislike" Content="Удалить из любимого" Grid.Column="1" Grid.Row="4" VerticalAlignment="Top" Foreground="#e4bcbc" Height="40" Background="#51382a" Width="150" HorizontalAlignment="Center" Visibility="Hidden"/>
 
         <Button x:Name="btn_back" Content="Назад" Grid.Column="3" Grid.Row="0" Foreground="#e4bcbc" Height="40" Background="#51382a" Width="150" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btn_back_Click"/>
     </Grid>

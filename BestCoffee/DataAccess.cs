@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BestCoffee.Model;
-
 namespace Core
 {
     public class DataAccess
@@ -38,9 +34,9 @@ namespace Core
             }
             return listCoffee;
         }
-        public static ObservableCollection<Coffee> GetAllCoffee()
-        {
-            return connection.Query<Coffee>("select * from [dbo].[Coffee]").AsList();
-        }
+        //public static List<Coffee> GetAllCoffee()
+        //{
+        //    return connection.Query<Coffee>("select * from [dbo].[Coffee]").AsList();
+        //}
     }
 }

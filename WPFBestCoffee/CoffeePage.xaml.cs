@@ -33,11 +33,12 @@ namespace WPFBestCoffee
             tb_recipe.Text = n.Recipe;
             tb_ingredient.Text = n.Ingredient;
             tb_complexity.Text = n.Complexity.Title;
-            if(n.favorite != true)
+            if(n.favorite == true)
             {
-                    like.Visibility = Visibility.Hidden;
+                    like.Visibility = Visibility.Visible;
+                    btn_dislike.Visibility = Visibility.Visible;
             }
-            else
+            if(n.favorite != true)
             {
                 btn_like.Visibility = Visibility.Visible;
             }
